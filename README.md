@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# UI Test Project
 
-## Getting Started
+## 📖 Overview
+This project is a UI test created to showcase skills in user interface design. The goal is to implement a responsive and user-friendly UI based on given specifications.
 
-First, run the development server:
+## 🚀 Features
+- Responsive design
+- Intuitive navigation
+- Modern aesthetics
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎨 Technologies Used
+- React
+- Tailwind CSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🙏 Acknowledgments
+Thank you for the opportunity to demonstrate my skills.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# โครงการทดสอบ UI
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📖 ภาพรวม
+โครงการนี้เป็นการทดสอบ UI ที่สร้างขึ้นเพื่อแสดงทักษะในการออกแบบส่วนติดต่อผู้ใช้ เป้าหมายคือการสร้าง UI ที่ตอบสนองและใช้งานง่ายตามข้อกำหนดที่ให้มา
 
-## Learn More
+## 🚀 ฟีเจอร์
+- การออกแบบที่ตอบสนอง
+- การนำทางที่ใช้งานง่าย
+- สวยงามตามมาตรฐานสมัยใหม่
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 เทคโนโลยีที่ใช้
+- React
+- Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🙏 ขอบคุณ
+ขอบคุณสำหรับโอกาสในการแสดงทักษะของฉัน
