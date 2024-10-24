@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'IBMPlexSansThai';
+  font-weight: normal;
+  src: url('/fonts/IBMPlexSansThai/IBMPlexSansThai-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexSansThai-Bold';
+  font-weight: 700;
+  src: url('/fonts/IBMPlexSansThai/IBMPlexSansThai-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexSansThai-Light';
+  font-weight: 300;
+  src: url('/fonts/IBMPlexSansThai/IBMPlexSansThai-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexSansThai-Medium';
+  font-weight: 500;
+  src: url('/fonts/IBMPlexSansThai/IBMPlexSansThai-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexSansThai-Thin';
+  font-weight: 400;
+  src: url('/fonts/IBMPlexSansThai/IBMPlexSansThai-Thin.ttf') format('truetype');
+}

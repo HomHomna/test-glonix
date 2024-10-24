@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./font.css";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html,
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #ffffff;
+  font-family: 'IBMPlexSansThai' !important;
+  color: #000;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.text_bold {
+  font-family: 'IBMPlexSansThai-Bold';
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3 !important;
+}
+
+.footer li {
+  font-family: 'IBMPlexSansThai-Thin';
+  font-size: 16px;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.footer .footer_content {
+  width: 100%;
+  display: grid;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  /* place-content: center; */
+  grid-template-areas: "course about policy address";
+  grid-template-columns: minmax(200px, 20%) minmax(200px, 20%) minmax(200px, 20%) auto;
+}
+
+.course {
+  grid-area: course;
+}
+
+.about {
+  grid-area: about;
+  
+}
+
+.policy {
+  grid-area: policy;
+  
+}
+
+.address {
+  grid-area: address;
+  
+}
