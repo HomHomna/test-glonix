@@ -1,0 +1,105 @@
+.flex-container{
+  display: flex;
+  gap: 26px;
+  overflow: hidden;
+}
+
+.title_page_layout {
+  display: grid;
+  grid-template-columns: minmax(500px, 30%) auto;
+}
+
+.banner {
+  position: relative;
+  width: 150px;
+  /* min-width: 150px; */
+  height: 548px;
+  border-radius: 32px;
+  transition: width 0.2s ease;
+}
+
+.banner:hover {
+  width: 412px;
+}
+
+.banner.darkgreen {
+  background-color: #002E2AE5;
+  color: #FFFFFF;
+}
+
+.banner.banner.darkgreen::before {
+  background-image: url('../public/images/banner1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  opacity: 0.2;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 32px;
+}
+
+.banner.lightgreen {
+  background-color: #95FFE5E5;
+}
+
+.banner.banner.lightgreen::before {
+  background-image: url('../public/images/banner2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  opacity: 0.2;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 32px;
+}
+
+.banner.yellow {
+  background-color: #FCFF8BE5;
+}
+
+.banner.banner.yellow::before {
+  background-image: url('../public/images/banner3.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  opacity: 0.2;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 32px;
+}
+
+.banner .title_banner {
+  position: absolute;
+  width: 200px;
+  top: 15%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, 0%) rotate(-90deg);
+  transition: all 0.2s ease;
+  text-wrap: pretty;
+}
+.banner:hover .title_banner {
+  position: absolute;
+  font-size: clamp(24px, 1vw, 32px);
+  padding: 44px;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  transform-origin: center;
+  transform: translate(0%, 0%) rotate(0deg);
+}
