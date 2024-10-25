@@ -68,15 +68,30 @@ body {
 
 .about {
   grid-area: about;
-  
 }
 
 .policy {
   grid-area: policy;
-  
 }
 
 .address {
   grid-area: address;
-  
+}
+
+.underlined {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.underlined:after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: -30px;
+  width: 250px;
+  height: 50px;
+  border: solid 6px #A8AD00;
+  border-color: #A8AD00 transparent transparent transparent;
+  border-radius: 50%;
+  transform: rotate(-2.12deg);
 }

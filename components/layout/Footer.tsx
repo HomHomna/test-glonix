@@ -16,8 +16,8 @@ const Footer: React.FC<Props> = (props) => {
           <hr className='border-[#C1C7CD]' />
           <div className='footer_content'>
             <div id='course' className="course">
-              <ul>
-                <h4 className='text-[20px] mb-[16px]'>คอร์สของเรา</h4>
+              <h4 className='text-[20px] mb-[28px]'>คอร์สของเรา</h4>
+              <ul className='flex flex-col gap-[16px]'>
                 <li>Data</li>
                 <li>Science</li>
                 <li>Tech</li>
@@ -26,8 +26,8 @@ const Footer: React.FC<Props> = (props) => {
             </div>
 
             <div id='about' className="about">
-              <ul>
-                <h4 className='text-[20px] mb-[16px]'>เกี่ยวกับเรา</h4>
+              <h4 className='text-[20px] mb-[28px]'>เกี่ยวกับเรา</h4>
+              <ul className='flex flex-col gap-[16px]'>
                 <li>สอนกับเรา</li>
                 <li>ติดต่อสอบถามเพิ่มเติม</li>
                 <li>แจ้งปัญหาเกี่ยวกับระบบ</li>
@@ -36,8 +36,8 @@ const Footer: React.FC<Props> = (props) => {
             </div>
 
             <div id='policy' className="policy">
-              <ul>
-                <h4 className='text-[20px] mb-[16px]'>ความปลอดภัย</h4>
+              <h4 className='text-[20px] mb-[28px]'>ความปลอดภัย</h4>
+              <ul className='flex flex-col gap-[16px]'>
                 <li>Privacy Policy</li>
                 <li>Terms and Conditions</li>
                 <li>Data Protection Policy Six</li>

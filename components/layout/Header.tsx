@@ -18,7 +18,7 @@ const Header: React.FC<Props> = (props) => {
     <>
       {isClient &&
         <header className="bg-white text-white py-4 bg-opacity-80 backdrop-blur-sm header">
-          <div className="container mx-auto px-4 flex justify-between items-center ">
+          <div className="container mx-auto px-[24px] flex justify-between items-center ">
             <div className='flex gap-[60px] items-center'>
               <h1 className="text_bold text-[#00665E] text-[34px]">LOGO</h1>
               <ul className='text-[#6A6A6A] gap-[5px] flex w-full'>
