@@ -86,27 +86,34 @@ const cardsArticle: CardArticle[] = [
 const Article: React.FC<Props> = (props) => {
   const { } = props
   const [windowDimensions, setWindowDimensions] = useState({
-    width: window?.innerWidth,
-    height: window?.innerHeight,
+    width: 0,
+    height: 0,
   });
   // const divStyle = (src:string) => ({
   //   backgroundImage: 'url(' + src + ')'
   // })
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== 'undefined') { // ตรวจสอบว่ารหัสนี้รันในฝั่งไคลเอนต์
       setWindowDimensions({
-        width: window?.innerWidth,
-        height: window?.innerHeight,
+        width: window.innerWidth,
+        height: window.innerHeight,
       });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+      const handleResize = () => {
+        setWindowDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, [])
 
   const is_mobile = useMemo(() => {
     return windowDimensions?.width < 500
   }, [windowDimensions])
-  console.log('is_mobile----->>>>>', is_mobile);
 
   return (
     <div>
@@ -120,9 +127,9 @@ const Article: React.FC<Props> = (props) => {
         {!is_mobile ?
           <>
             <div className={styles.grid_layout_article_card}>
-              {cardsArticle?.filter((i: CardArticle) => i?.recommend)?.map((item: CardArticle) => {
+              {cardsArticle?.filter((i: CardArticle) => i?.recommend)?.map((item: CardArticle, index: number) => {
                 return (
-                  <div className={styles.recommend_card_layout}>
+                  <div className={styles.recommend_card_layout} key={index}>
                     <div
                       style={{
                         backgroundImage: `url('${item.bg_image}')`,
@@ -176,9 +183,9 @@ const Article: React.FC<Props> = (props) => {
               })}
             </div>
             <div className={styles.grid_layout_article_card}>
-              {cardsArticle?.filter((i: CardArticle) => !i?.recommend)?.map((item: CardArticle) => {
+              {cardsArticle?.filter((i: CardArticle) => !i?.recommend)?.map((item: CardArticle, index: number) => {
                 return (
-                  <div className={styles.new_card_layout}>
+                  <div className={styles.new_card_layout} key={`${item?.tag}_${index}`}>
                     <div
                       style={{
                         backgroundImage: `url('${item.bg_image}')`,
@@ -217,9 +224,9 @@ const Article: React.FC<Props> = (props) => {
           </>
           : <>
             <div className={styles.grid_article_mobile}>
-              {cardsArticle?.map((item: CardArticle) => {
+              {cardsArticle?.map((item: CardArticle, index: number) => {
                 return (
-                  <div className={styles.recommend_card_layout_mobile}>
+                  <div className={styles.recommend_card_layout_mobile} key={`${item?.tag}_${index}`}>
                     <div
                       style={{
                         backgroundImage: `url('${item.bg_image}')`,

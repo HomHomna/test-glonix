@@ -17,7 +17,6 @@ const QuestionThread: React.FC<Props> = (props) => {
     setValues((prev) => ({ ...prev, [name]: value }))
 
   }
-  console.log('values----->>>>>', values);
 
   return (
     <div>

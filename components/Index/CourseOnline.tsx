@@ -72,9 +72,10 @@ const CourseOnline: React.FC<Props> = (props) => {
         <button className={`px-[35px] py-[8px] border-solid w-[135px] border-[2px] border-[#A8AD00] rounded-[59px] text-[#A8AD00] ${styles.see_all_btn_head}`}>ดูทั้งหมด</button>
       </div>
       <div className={styles.content_course}>
-        {card_course?.map((item: CourseOnline) => {
+        {card_course?.map((item: CourseOnline, index: number) => {
           return (
             <div
+              key={index}
               className={styles.carouselItem}
               style={{
                 position: 'relative', // Set position to relative for parent
@@ -105,7 +106,7 @@ const CourseOnline: React.FC<Props> = (props) => {
                   zIndex: 2,
                   borderRadius: '24px',
                   padding: '19px 25px 0px 25px',
-                 height: '548px'
+                  height: '548px'
                 }}
               >
                 <div className='flex flex-col justify-between h-[90%] mt-[30px] mb-[12px]'>

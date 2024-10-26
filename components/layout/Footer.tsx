@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { Instagram, Facebook, Twitter, Youtube, LinkIn } from '../icons'
+import styles from '@/styles/layout/Footer.module.css'
 interface Props {
 
 }
@@ -54,7 +55,7 @@ text of the printing .`}</h4>
               <h4 className='text-[16px] mb-[16px] mt-[24px]'>
                 ติดต่อเรา
               </h4>
-              <div className='flex gap-[16px]'>
+              <div className={`flex gap-[16px] ${styles.contract_social}`}>
                 <Youtube />
                 <Facebook />
                 <Twitter />
@@ -64,7 +65,7 @@ text of the printing .`}</h4>
             </div>
           </div>
           <hr className='border-[#C1C7CD]' />
-          <div className='flex items-center justify-between !text-[16px] mt-[32px]'>
+          <div className={`flex items-center justify-between !text-[16px] mt-[32px] ${styles.contract_footer}`}>
             <div className='font-[IBMPlexSansThai-Thin]'>
               Y.I.M Corporation @ 2023. All rights reserved.
             </div>

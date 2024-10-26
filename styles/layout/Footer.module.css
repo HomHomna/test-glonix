@@ -1,0 +1,12 @@
+@media (max-width:500px) {
+  .contract_footer {
+    justify-content: center !important;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .contract_social {
+    display: flex;
+    justify-content: center;
+  }
+}

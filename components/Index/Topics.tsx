@@ -44,7 +44,7 @@ const Topics: React.FC<Props> = (props) => {
       <div className={`flex w-full h-[280px] overflow-hidden gap-[20px] mt-[20px] ${styles.layout_topic}`}>
         {card_course?.map((item: Topics, index: number) => {
           return (
-            <div className={`relative shadow-[0px_0px_12px_0px_#0000001A] px-[24px] py-[26px] w-[256px] min-h-[171px] max-h-[250px] rounded-[24px] flex flex-col justify-between ${styles.topic_card}`}>
+            <div key={index} className={`relative shadow-[0px_0px_12px_0px_#0000001A] px-[24px] py-[26px] w-[256px] min-h-[171px] max-h-[250px] rounded-[24px] flex flex-col justify-between ${styles.topic_card}`}>
               <div>
                 <h4 className={`text_bold flex items-center gap-[22px] text-[22px] ${styles.title}`}>{item?.icon} {item?.title}</h4>
                 <div className={`text-[#6A6A6A] text-[clamp(14px, 1vw, 18px)] w-full text-pretty mt-[25px] ${styles.desc}`}>{item?.desc}</div>
