@@ -23,6 +23,8 @@ body {
   background: #ffffff;
   font-family: 'IBMPlexSansThai' !important;
   color: #000;
+  overflow-x: hidden;
+  scroll-behavior: smooth
 }
 
 @layer utilities {

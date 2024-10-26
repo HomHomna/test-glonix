@@ -1,0 +1,39 @@
+.grid_layout_article {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 22px;
+  margin-bottom: 1.5rem;
+  margin-top: 36px;
+}
+
+.recommend_card_layout {
+  box-shadow: 0px 0px 12px 0px #0000000A;
+  width: 100%;
+  max-width: 627px;
+  height: 413px;
+  border-radius: 24px;
+  /* background: red; */
+  display: grid;
+  grid-template-columns: minmax(200px, 40%) auto;
+  position: relative;
+}
+
+.new_card_layout {
+  box-shadow: 0px 0px 12px 0px #0000000A;
+  width: 100%;
+  max-width: 630px;
+  height: 269px;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: minmax(200px, 40%) auto;
+  position: relative;
+}
+
+.grid_layout_article_card {
+  display: grid;
+  align-content: space-between;
+  gap: 21px;
+  height: 100% !important;
+  max-height: 900px;
+}
