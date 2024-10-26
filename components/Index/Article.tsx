@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import VideoIcon from '../icons/VideoIcon'
 import dayjs from 'dayjs'
 import styles from '@/styles/Index/Article.module.css'
@@ -85,18 +85,197 @@ const cardsArticle: CardArticle[] = [
 
 const Article: React.FC<Props> = (props) => {
   const { } = props
-
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window?.innerWidth,
+    height: window?.innerHeight,
+  });
   // const divStyle = (src:string) => ({
   //   backgroundImage: 'url(' + src + ')'
   // })
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window?.innerWidth,
+        height: window?.innerHeight,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
+
+  const is_mobile = useMemo(() => {
+    return windowDimensions?.width < 500
+  }, [windowDimensions])
+  console.log('is_mobile----->>>>>', is_mobile);
 
   return (
     <div>
-      <h4 className='text_bold flex items-center gap-[24px] text-[24px]'><VideoIcon /> บทความและข่าวสารล่าสุด</h4>
+      <div className='flex items-baseline justify-between w-full'>
+        <h4 className={`text_bold flex items-center gap-[24px] text-[24px] title_head`}><VideoIcon className={`head_icon`} /> บทความและข่าวสารล่าสุด</h4>
+        <button className={`px-[35px] py-[8px] border-solid w-[135px] border-[2px] border-[#A8AD00] rounded-[59px] text-[#A8AD00] ${styles.see_all_btn_head}`}>ดูทั้งหมด</button>
+      </div>
       <div
         className={styles.grid_layout_article}
       >
-        <div className={styles.grid_layout_article_card}>
+        {!is_mobile ?
+          <>
+            <div className={styles.grid_layout_article_card}>
+              {cardsArticle?.filter((i: CardArticle) => i?.recommend)?.map((item: CardArticle) => {
+                return (
+                  <div className={styles.recommend_card_layout}>
+                    <div
+                      style={{
+                        backgroundImage: `url('${item.bg_image}')`,
+                        // backgroundImage: `url(/images${item.bg_image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundBlendMode: 'multiply',
+                        backgroundColor: item?.bg_color,
+                        borderTopLeftRadius: '24px',
+                        borderEndStartRadius: '24px',
+                        padding: '46px 40px 0px 40px',
+                      }}
+                      className='text-[white] flex items-start justify-between text-[26px] text_bold w-full flex-col'
+                    >
+                      <div className=''>{item?.title}</div>
+                      {
+                        item?.icon &&
+                        <div className='w-full relative'>
+                          <Image
+                            alt={item?.title}
+                            width={251}
+                            height={187}
+                            src={item?.icon}
+                            // className='absolute bottom-[0px]'
+                            style={{ width: '100%', maxWidth: '251px', maxHeight: '187px', height: 'auto' }}
+                          // fill={true}
+                          />
+                        </div>
+                      }
+                    </div>
+                    <div className='flex flex-col justify-between px-[46px] py-[29px]'>
+                      <div className='flex flex-col gap-[8px]'>
+                        <div className={`text-[#00665E] text-[16px] cursor-pointer px-[16px] py-[8px] w-[fit-content] ${item?.tag_highlight ? 'border-solid border-[1px] border-[#00665E]' : ''} grid place-content-center rounded-[59px] mb-[18px]`}>
+                          {item?.tag}
+                        </div>
+                        <div className='text_bold text-[clamp(18px, 1vw, 20px)]'>
+                          {item?.sub_title}
+                        </div>
+                        <div className='text-[clamp(14px, 1vw, 16px)]'>
+                          {item?.desc}
+                        </div>
+                      </div>
+                      <div>
+                        <div className='flex items-center gap-[12px]'><ClockIcon /> {dayjs(item?.created_date).locale('th').format('DD MMMM YYYY')}</div>
+                        <div className='flex items-center gap-[12px]'><EyeIcon /> {`เข้าชม ${item?.view} ครั้ง`}</div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div className={styles.grid_layout_article_card}>
+              {cardsArticle?.filter((i: CardArticle) => !i?.recommend)?.map((item: CardArticle) => {
+                return (
+                  <div className={styles.new_card_layout}>
+                    <div
+                      style={{
+                        backgroundImage: `url('${item.bg_image}')`,
+                        // backgroundImage: `url(/images${item.bg_image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundBlendMode: 'multiply',
+                        backgroundColor: item?.bg_color,
+                        borderTopLeftRadius: '24px',
+                        borderEndStartRadius: '24px',
+                        padding: '46px 40px 46px 40px',
+                      }}
+                      className='text-[white] flex items-center justify-center text-[clamp(20px, 1vw, 24px)] text_bold w-full flex-col'
+                    >
+                      <div className='text-center'>{item?.title}</div>
+
+                    </div>
+                    <div className='flex flex-col justify-between px-[46px] py-[29px]'>
+                      <div className='flex flex-col gap-[8px] '>
+                        <div className={`text-[#00665E] text-[16px] cursor-pointer px-[16px] py-[8px] w-[fit-content] ${item?.tag_highlight ? 'border-solid border-[1px] border-[#00665E]' : ''} grid place-content-center rounded-[59px] mb-[18px]`}>
+                          {item?.tag}
+                        </div>
+                        <div className='text_bold text-[clamp(18px, 1vw, 20px)]'>
+                          {item?.sub_title}
+                        </div>
+                        <div className='text-[clamp(14px, 1vw, 16px)] overflow-hidden line-clamp-4'>
+                          {item?.desc}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </>
+          : <>
+            <div className={styles.grid_article_mobile}>
+              {cardsArticle?.map((item: CardArticle) => {
+                return (
+                  <div className={styles.recommend_card_layout_mobile}>
+                    <div
+                      style={{
+                        backgroundImage: `url('${item.bg_image}')`,
+                        // backgroundImage: `url(/images${item.bg_image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundBlendMode: 'multiply',
+                        backgroundColor: item?.bg_color,
+                        borderTopLeftRadius: '24px',
+                        borderTopRightRadius: '24px',
+                        padding: '46px 40px 0px 40px',
+                      }}
+                      className='text-[white] flex items-start justify-between text-[26px] text_bold w-full flex-col'
+                    >
+                      <div className=''>{item?.title}</div>
+                      {
+                        item?.icon &&
+                        <div className='w-full relative'>
+                          <Image
+                            alt={item?.title}
+                            width={251}
+                            height={187}
+                            src={item?.icon}
+                            className={styles.icon}
+                          // className='absolute bottom-[0px]'
+                          // style={{ width: '100%', maxWidth: '251px', maxHeight: '187px', height: 'auto' }}
+                          // fill={true}
+                          />
+                        </div>
+                      }
+                    </div>
+                    <div className='flex flex-col justify-between px-[46px] py-[29px]'>
+                      <div className='flex flex-col gap-[8px]'>
+                        <div className={`text-[#00665E] text-[16px] cursor-pointer px-[16px] py-[8px] w-[fit-content] ${item?.tag_highlight ? 'border-solid border-[1px] border-[#00665E]' : ''} grid place-content-center rounded-[59px] mb-[18px]`}>
+                          {item?.tag}
+                        </div>
+                        <div className='text_bold text-[clamp(18px, 1vw, 20px)]'>
+                          {item?.sub_title}
+                        </div>
+                        <div className='text-[clamp(14px, 1vw, 16px)]'>
+                          {item?.desc}
+                        </div>
+                      </div>
+                      <div className={styles.footer}>
+                        <div className='flex items-center gap-[12px]'><ClockIcon /> {dayjs(item?.created_date).locale('th').format('DD MMMM YYYY')}</div>
+                        <div className='flex items-center gap-[12px]'><EyeIcon /> {`เข้าชม ${item?.view} ครั้ง`}</div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </>
+        }
+        {/* <div className={styles.grid_layout_article_card}>
           {cardsArticle?.filter((i: CardArticle) => i?.recommend)?.map((item: CardArticle) => {
             return (
               <div className={styles.recommend_card_layout}>
@@ -190,7 +369,10 @@ const Article: React.FC<Props> = (props) => {
               </div>
             )
           })}
-        </div>
+        </div> */}
+      </div>
+      <div className={`${styles.see_all_btn_foot}`}>
+        <button className={`px-[35px] py-[8px] border-solid w-[135px] border-[2px] border-[#A8AD00] rounded-[59px] text-[#A8AD00]`}>ดูทั้งหมด</button>
       </div>
     </div>
   )
