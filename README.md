@@ -32,4 +32,4 @@ Thank you for the opportunity to demonstrate my skills.
 ## 🙏 ขอบคุณ
 ขอบคุณสำหรับโอกาสในการแสดงทักษะของฉัน
 
-![Alt text](./images/screencapture.png)
+![Alt text](./public/images/screencapture.png)
