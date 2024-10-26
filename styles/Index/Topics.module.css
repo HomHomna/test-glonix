@@ -1,0 +1,44 @@
+@media (max-width:500px) {
+  .layout_topic {
+    display: flex;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    height: fit-content !important;
+  }
+
+  .topic_card {
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  .btn {
+    position: absolute !important;
+    right: 5% !important;
+    top: 50%;
+  }
+
+  .desc {
+    width: 95% !important;
+    font-size: clamp(14px, 1vw, 14px);
+  }
+
+  .title {
+    width: 95% !important;
+    font-size: 16px;
+  }
+
+  .title_head {
+    font-size: 18px;
+    gap: 16px !important;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .head_icon {
+    width: 22px;
+    height: 22px;
+  }
+}

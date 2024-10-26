@@ -20,11 +20,14 @@
 html,
 body {
   color: rgb(var(--foreground-rgb));
-  background: #ffffff;
+  background: #FCFAFA;
   font-family: 'IBMPlexSansThai' !important;
   color: #000;
   overflow-x: hidden;
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  background-image: url('../public/images/effect1.png'), url('../public/images/effect2.png'), url('../public/images/effect3.png'), url('../public/images/effect4.png');
+  background-repeat: no-repeat;
+  background-position: 0% 978px, 100% 1430px, 0% 2406px, 100% 3577px;
 }
 
 @layer utilities {
@@ -96,4 +99,65 @@ body {
   border-color: #A8AD00 transparent transparent transparent;
   border-radius: 50%;
   transform: rotate(-2.12deg);
+}
+
+.container-content {
+  margin-left: 16%;
+  margin-right: 16%;
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text_overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width:1280px) and (min-width: 1000px) {
+  .container-content {
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 88%;
+  }
+}
+
+.quill {
+  border-radius: 24px;
+  /* overflow: hidden;  */
+}
+
+.ql-toolbar {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.ql-container {
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+@media (max-width:500px) {
+  .container-content {
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title_head {
+    font-size: 18px;
+    gap: 16px !important;
+  }
+ .head_icon {
+    width: 22px;
+    height: 22px;
+  }
 }

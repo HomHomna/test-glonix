@@ -13,12 +13,12 @@
 
 .banner {
   position: relative;
-  width: 150px; 
+  width: 150px;
   /* min-width: 150px; */
   height: 548px;
   border-radius: 32px;
   transition: all 0.2s ease;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* .banner:hover {
@@ -26,8 +26,7 @@
 } */
 
 .banner:hover {
-  width: 412px; 
-  z-index: 10; 
+  width: 412px;
 }
 
 .banner .desc_banner {
@@ -168,4 +167,90 @@
   left: 0%;
   transform: translate(0%, 0%) rotate(0deg);
   height: auto;
+}
+
+@media (max-width:500px) {
+  .title_page_layout {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .banner {
+    margin-top: 20px;
+    position: relative;
+    width: 150px;
+    /* min-width: 150px; */
+    height: 548px;
+    border-radius: 32px;
+    transition: all 0.2s ease;
+    overflow: auto;
+  }
+  
+  .banner:hover {
+    width: 512px;
+  }
+
+  .banner .title_banner {
+    position: absolute;
+    width: 200px;
+    top: 15%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, 0%) rotate(-90deg);
+    transition: all 0.2s ease;
+    text-wrap: pretty;
+    height: fit-content;
+  }
+  
+  .banner:hover .title_banner {
+    position: relative;
+    font-size: clamp(16px, 1vw, 20px);
+    padding: 44px 44px 12px 44px;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%) rotate(0deg);
+    height: auto;
+  }
+
+  .banner .desc_banner {
+    font-size: clamp(14px, 1vw, 16px);
+    opacity: 0;
+    width: 100%;
+    /* display: none; */
+    position: absolute;
+    /* bottom: 20%; */
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* transition: opacity 0.1s ease; */
+    font-family: 'IBMPlexSansThai-Thin';
+    padding: 0px 44px 12px 44px;
+  }
+  
+  .banner:hover .desc_banner {
+    /* display: flex; */
+    transition: opacity 0.7s ease;
+    opacity: 1;
+  }
+
+  .banner .user_banner_detail {
+    visibility: hidden;
+    width: 0px;
+    transform: scale(0);
+    opacity: 0;
+    /* transition: visibility 0s 0.7s, opacity 0.7s ease; */
+  }
+  
+  .banner:hover .user_banner_detail {
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    transform: scale(1);
+    font-size: clamp(12px, 1vw, 14px);
+    transition: opacity 0.7s ease, transform 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

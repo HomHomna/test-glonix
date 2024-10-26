@@ -3,7 +3,10 @@ import Image from "next/image";
 import styles from "@/styles/index.module.css"
 import Topics from "@/components/Index/Topics";
 import SearchBar from "@/components/SearchBar";
+import Course from "@/components/Index/Course";
 import Article from "@/components/Index/Article";
+import CourseOnline from "@/components/Index/CourseOnline";
+import QuestionThread from "@/components/Index/QuestionThread";
 interface CardBanner {
   title: string
   desc: string
@@ -47,7 +50,7 @@ const card_banner_title: CardBanner[] = [
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col mt-[140px] w-[100vw]">
-      <div className="px-[24px] mx-[6%]">
+      <div className="container-content">
         <div className={styles.title_page_layout}>
           <div className="flex flex-col">
             <h5 className="text-[18px] text-[#00665E] mb-[20px]">Lorem Ipsum is simply dummy .</h5>
@@ -80,8 +83,8 @@ export default function Home() {
                         src={item?.image}
                       />
                       <div className={styles.user_banner_detail}>
-                        <div title={item?.user_name} className="text_bold">{item?.user_name}</div>
-                        <div>{item?.position}</div>
+                        <div title={item?.user_name} className="text_bold text_overflow">{item?.user_name}</div>
+                        <div className="text_overflow">{item?.position}</div>
                       </div>
                     </div>
                   </div>
@@ -91,12 +94,24 @@ export default function Home() {
           </div>
 
         </div>
-        <div className="mt-[90px]">
+        <div className="mt-[90px] w-full">
           <Topics />
         </div>
 
-        <div className="mt-[90px]">
+        <div className="mt-[75px] w-full">
+          <Course />
+        </div>
+
+        <div className="mt-[75px] w-full">
+          <CourseOnline />
+        </div>
+
+        <div className="mt-[90px] w-full">
           <Article />
+        </div>
+
+        <div className="mt-[90px] w-full">
+          <QuestionThread />
         </div>
       </div>
     </main>
